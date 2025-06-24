@@ -70,3 +70,5 @@ const NilaiInti = () => {
 };
 
 export default NilaiInti;
+
+

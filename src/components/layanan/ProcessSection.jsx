@@ -1,4 +1,3 @@
-// components/layanan/ProcessSection.jsx
 const ProcessSection = () => {
   return (
     <section className="py-16 bg-[#109626] text-white px-4">
