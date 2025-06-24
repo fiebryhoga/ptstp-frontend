@@ -1,4 +1,4 @@
-import Layout from './Layout';
+import Layout from "./layout";
 import HeroTentangKami from "../components/tentang-kami/HeroTentangKami";
 import ProfilPerusahaan from "../components/tentang-kami/ProfilPerusahaan";
 import VisiMisi from "../components/tentang-kami/VisiMisi";
