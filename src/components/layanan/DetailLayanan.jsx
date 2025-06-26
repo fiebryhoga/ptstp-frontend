@@ -1,82 +1,50 @@
-import Image from "next/image";
+import CardLayanan from "@/components/common/CardLayanan";
 
 const DetailLayanan = () => {
   return (
-    <section className="py-16 bg-white px-4">
+    <section className="py-20 bg-white px-4">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-gray-800 text-center mb-12">
-          Detail Layanan Angkutan
+        <h2 className="text-4xl font-bold text-center text-[#373536] mb-12">
+          Layanan Kami
         </h2>
 
-        {/* Layanan 1 */}
-        <div className="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow-lg p-8 mb-12 gap-8">
-          <div className="md:w-1/3 flex justify-center items-center">
-            <Image
-              src="/assets/image/layanan1.jpeg"
-              alt="Pengangkutan Batu Kapur"
-              width={250}
-              height={250}
-              className="rounded-lg shadow-md"
-            />
-          </div>
-          <div className="md:w-2/3 text-center md:text-left">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Pengangkutan Batu Kapur
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Kami melayani pengangkutan batu kapur dari lokasi tambang ke
-              pabrik atau tempat pengolahan. Layanan ini didukung oleh armada
-              truk yang siap mengangkut dalam jumlah besar secara efisien dan
-              tepat waktu.
-            </p>
-          </div>
-        </div>
-
-        {/* Layanan 2 */}
-        <div className="flex flex-col md:flex-row-reverse items-center bg-gray-50 rounded-lg shadow-lg p-8 mb-12 gap-8">
-          <div className="md:w-1/3 flex justify-center items-center">
-            <Image
-              src="/assets/image/layanan2.jpeg"
-              alt="Distribusi Batu Kapur untuk Proyek Konstruksi"
-              width={250}
-              height={250}
-              className="rounded-lg shadow-md"
-            />
-          </div>
-          <div className="md:w-2/3 text-center md:text-right">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Distribusi Batu Kapur untuk Proyek Konstruksi
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Kami menyediakan jasa distribusi batu kapur ke berbagai proyek
-              konstruksi, baik skala kecil maupun besar. Layanan kami memastikan
-              material tiba di lokasi tepat waktu dan dalam kondisi optimal.
-            </p>
-          </div>
-        </div>
-
-        {/* Layanan 3 */}
-        <div className="flex flex-col md:flex-row items-center bg-gray-50 rounded-lg shadow-lg p-8 gap-8">
-          <div className="md:w-1/3 flex justify-center items-center">
-            <Image
-              src="/assets/image/layanan3.jpeg"
-              alt="Angkutan Material Pendukung"
-              width={250}
-              height={250}
-              className="rounded-lg shadow-md"
-            />
-          </div>
-          <div className="md:w-2/3 text-center md:text-left">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-4">
-              Angkutan Material Pendukung Lainnya
-            </h3>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Selain batu kapur, kami juga melayani pengangkutan material
-              pendukung lainnya sesuai permintaan. Fleksibilitas armada dan
-              penjadwalan memungkinkan kami memenuhi berbagai jenis kebutuhan
-              logistik industri Anda.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <CardLayanan
+            image="/assets/image/layanan1.jpeg"
+            alt="Jasa Angkutan Batu Kapur"
+            title="Jasa Angkutan Batu Kapur"
+            description="Pengangkutan batu kapur dari tambang ke pabrik, proyek konstruksi, hingga permintaan khusus material pendukung lainnya."
+          />
+          <CardLayanan
+            image="/assets/image/layanan2.jpeg"
+            alt="Distribusi Batu Kapur"
+            title="Distribusi Proyek Konstruksi"
+            description="Distribusi batu kapur yang efisien dan tepat waktu untuk proyek jalan, gedung, dan infrastruktur lainnya."
+          />
+          <CardLayanan
+            image="/assets/image/layanan3.jpeg"
+            alt="Angkutan Material Pendukung"
+            title="Angkutan Material Pendukung"
+            description="Kami melayani pengangkutan material selain kapur sesuai kebutuhan logistik industri dan proyek Anda."
+          />
+          <CardLayanan
+            image="/assets/image/jual-batu.jpeg"
+            alt="Jual Beli Batu Kapur"
+            title="Jual Beli Batu Kapur"
+            description="Kami menyediakan batu kapur berkualitas tinggi untuk industri semen, pembangunan, dan pengolahan dolomit."
+          />
+          <CardLayanan
+            image="/assets/image/grosok.jpeg"
+            alt="Grosok / Pedel Batu Kapur"
+            title="Grosok / Pedel Batu Kapur"
+            description="Batu kapur berukuran kecil untuk urugan, pemadatan, dan lapisan dasar proyek konstruksi Anda."
+          />
+          <CardLayanan
+            image="/assets/image/kontrak.jpeg"
+            alt="Sistem Kontrak Fleksibel"
+            title="Sistem Kontrak Fleksibel"
+            description="Layanan angkutan bisa harian, borongan, atau kontrak jangka panjang sesuai kebutuhan proyek Anda."
+          />
         </div>
       </div>
     </section>

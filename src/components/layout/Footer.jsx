@@ -1,60 +1,56 @@
-// components/Footer.jsx
 import Link from "next/link";
 import Image from "next/image";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear(); // Mendapatkan tahun saat ini secara dinamis
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 px-4">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
-        {/* Kolom 1: Logo dan Deskripsi Singkat */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <Link href="/" className="mb-4">
+    <footer className="relative text-gray-200 px-4 pt-16 pb-10 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/assets/image/bg-footer.jpg"
+          alt="Background Footer"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[#373536]/80"></div>
+      </div>
+
+      <div className="relative z-10 container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <Link href="/" className="flex items-center gap-3 mb-4">
             <Image
-              src="/assets/image/logo.png" // Pastikan path logo Anda benar
-              alt="PT. Siwalan Tehnik Perkasa Logo"
-              width={60}
-              height={60}
+              src="/assets/image/logo-stp.png"
+              alt="Logo PT. Siwalan Tehnik Perkasa"
+              width={50}
+              height={50}
             />
+            <span className="text-xl font-bold text-white">
+              PT. Siwalan Tehnik Perkasa
+            </span>
           </Link>
-          <p className="text-lg font-bold text-white mb-2">
-            PT. Siwalan Teknik Perkasa
-          </p>
           <p className="text-sm leading-relaxed max-w-xs">
-            Penyedia jasa angkutan batu kapur terpercaya dengan pengalaman lebih
-            dari 20 tahun. Mitra handal untuk kebutuhan transportasi tambang
-            Anda.
+            Mitra logistik andal sejak 2000 untuk angkutan batu kapur di Jawa
+            Timur dan sekitarnya. Profesional, aman, dan tepat waktu.
           </p>
         </div>
-
-        {/* Kolom 2: Tautan Cepat */}
-        <div className="text-center md:text-left">
-          <h3 className="text-xl font-semibold text-[#FFC107] mb-5">
+        
+        <div>
+          <h4 className="text-lg font-semibold text-[#D94A38] mb-4">
             Tautan Cepat
-          </h3>
+          </h4>
           <ul className="space-y-3">
             <li>
-              <Link
-                href="/"
-                className="hover:text-white transition duration-300"
-              >
+              <Link href="/" className="hover:text-white">
                 Beranda
               </Link>
             </li>
             <li>
-              <Link
-                href="/layanan"
-                className="hover:text-white transition duration-300"
-              >
+              <Link href="/layanan" className="hover:text-white">
                 Layanan
               </Link>
             </li>
             <li>
-              <Link
-                href="/tentang-kami"
-                className="hover:text-white transition duration-300"
-              >
+              <Link href="/tentang-kami" className="hover:text-white">
                 Tentang Kami
               </Link>
             </li>
@@ -63,7 +59,7 @@ const Footer = () => {
                 href="https://wa.me/6285730979537"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white transition duration-300"
+                className="hover:text-white"
               >
                 Hubungi Kami
               </Link>
@@ -71,42 +67,35 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Kolom 3: Kontak Detail */}
-        {/* Mengembalikan md:col-span-2 menjadi 1 kolom agar sesuai dengan 4 kolom di grid md */}
-        <div className="text-center md:text-left">
-          <h3 className="text-xl font-semibold text-[#FFC107] mb-5">
+        <div>
+          <h4 className="text-lg font-semibold text-[#D94A38] mb-4">
             Kontak Kami
-          </h3>
-          
-          <ul className="space-y-3 mb-6 text-left inline-block md:block">
-            <li className="flex items-center gap-2">
-              <i className="fas fa-map-marker-alt text-[#FFC107]"></i>
+          </h4>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-2">
+              <i className="fas fa-map-marker-alt text-[#D94A38] mt-1"></i>
               <span>
-                Alamat Kantor: Jl. Raya Semarang–Tuban No. KM 35, Paloh, Bancar,
-                Kecamatan Bancar, Kabupaten Tuban, Jawa Timur.
+                Jl. Raya Semarang–Tuban No. KM 35, Paloh, Bancar, Tuban, Jawa
+                Timur.
               </span>
             </li>
             <li className="flex items-center gap-2">
-              <i className="fas fa-envelope text-[#FFC107]"></i>
-              <span>Email: stp.bancar@gmail.com</span>
+              <i className="fas fa-envelope text-[#D94A38]"></i>
+              <span>stp.bancar@gmail.com</span>
             </li>
             <li className="flex items-center gap-2">
-              <i className="fas fa-phone-alt text-[#FFC107]"></i>
-              <span>Telepon: +62 812-3456-7890</span>
+              <i className="fas fa-phone-alt text-[#D94A38]"></i>
+              <span>+62 812-3456-7890</span>
             </li>
           </ul>
-          
         </div>
-
       </div>
 
-      {/* Bagian Peta Google Maps (baru dipindahkan) */}
-      <div className="container mx-auto mt-10 pt-8 border-t border-gray-700">
-        {" "}
-        {/* Menambahkan padding atas dan border */}
-        <h3 className="text-xl font-semibold text-[#FFC107] mb-4 text-center">
+      {/* Google Maps */}
+      <div className="relative z-10 container mx-auto mt-12">
+        <h4 className="text-lg font-semibold text-[#D94A38] mb-4 text-center">
           Lokasi Kami
-        </h3>
+        </h4>
         <div className="w-full h-64 md:h-80 overflow-hidden rounded-lg shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.8501890929797!2d111.79065357542585!3d-6.788077893209061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7709913f83ee63%3A0x97b0890f5fefe9a5!2sPT.%20SIWALAN%20TEHNIK%20PERKASA!5e0!3m2!1sen!2sid!4v1750774589702!5m2!1sen!2sid"
@@ -115,18 +104,16 @@ const Footer = () => {
             style={{ border: 0 }}
             allowFullScreen=""
             loading="lazy"
+            title="PT. Siwalan Tehnik Perkasa Map"
             referrerPolicy="no-referrer-when-downgrade"
-            title="Lokasi PT. SIWALAN TEHNIK PERKASA"
           ></iframe>
         </div>
       </div>
 
-      {/* Baris Copyright */}
-      <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-500">
-        <p>
-          &copy; {currentYear} PT. Siwalan Teknik Perkasa. Semua Hak Dilindungi
-          Undang-Undang.
-        </p>
+      {/* Copyright */}
+      <div className="relative z-10 text-center mt-10 pt-6 border-t border-gray-700 text-lg text-white">
+        &copy; {currentYear} PT. Siwalan Tehnik Perkasa. Seluruh hak cipta
+        dilindungi.
       </div>
     </footer>
   );

@@ -3,25 +3,31 @@ import Link from "next/link";
 const HeroTentangKami = () => {
   return (
     <section
-      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center text-white"
+      className="relative h-[70vh] md:h-[80vh] bg-cover bg-center flex items-center text-white"
       style={{ backgroundImage: "url('/assets/image/layanan1.jpeg')" }}
     >
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      <div className="container mx-auto text-center z-10 relative px-4">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">
-          Tentang Kami
-        </h1>
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
-          Membangun Kepercayaan, Menggerakkan Industri Sejak Tahun 2000.
-        </p>
-        <Link
-          href="https://wa.me/6285730979537"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-[#FFC107] text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400"
-        >
-          <i className="fab fa-whatsapp mr-2"></i> Hubungi Kami
-        </Link>
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/50"></div>
+
+      <div className="relative z-10 container mx-auto px-6 md:px-12">
+        <div className="max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-down">
+            Tentang Kami
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-200 mb-8 animate-fade-in-up delay-100">
+            Sejak tahun 2000, PT. Siwalan Teknik Perkasa menjadi ujung tombak
+            dalam jasa angkutan batu kapur di Indonesia — menggabungkan
+            pengalaman, inovasi, dan komitmen terhadap kepuasan pelanggan.
+          </p>
+          <Link
+            href="https://wa.me/6281234567890"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#D94A38] hover:bg-[#b53e2c] text-white px-10 py-4 rounded-full text-lg font-semibold shadow-lg transition duration-300 transform hover:scale-105 animate-fade-in-up delay-300"
+          >
+            <i className="fab fa-whatsapp mr-2"></i> Konsultasi Sekarang
+          </Link>
+        </div>
       </div>
     </section>
   );

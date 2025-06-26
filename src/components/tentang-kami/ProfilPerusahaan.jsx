@@ -2,62 +2,71 @@ import Image from "next/image";
 
 const ProfilPerusahaan = () => {
   return (
-    <section className="py-16 bg-white px-4">
-      <div className="container mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-800 mb-8">
-          Profil Perusahaan
-        </h2>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-10">
-          PT. Siwalan Tehnik Perkasa adalah perusahaan yang bergerak di bidang
-          jasa angkutan batu kapur, berdiri sejak 28 Maret 2000, dan berkomitmen
-          memberikan layanan logistik pertambangan yang andal, efisien, serta
-          tepat waktu. Dengan lebih dari dua dekade pengalaman di sektor
-          transportasi tambang, kami telah menjadi mitra strategis bagi berbagai
-          perusahaan industri, pabrik pengolahan, dan kontraktor tambang di
-          wilayah Jawa Timur dan sekitarnya.
-        </p>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-10">
-          Kami hadir untuk menjawab kebutuhan pasar akan solusi angkutan tambang
-          yang profesional. Dengan didukung oleh armada besar dan pengemudi
-          berpengalaman, kami memastikan setiap proses distribusi berjalan aman
-          dan terkoordinasi, mulai dari titik muat hingga titik bongkar.
-        </p>
+    <section className="py-24 bg-white relative overflow-hidden px-4">
+      {/* Decorative Background */}
+      <div
+        className="absolute inset-0 bg-[url('/assets/image/bg-footer.jpg')] bg-cover bg-center opacity-5"
+        aria-hidden="true"
+      ></div>
 
-        <div className="mt-12 bg-gray-50 p-8 rounded-lg shadow-lg text-left">
-          <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center md:text-left">
+      <div className="container mx-auto relative z-10">
+        {/* Judul & Intro */}
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-800 mb-6">
+            Profil Perusahaan
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 mb-5 leading-relaxed">
+            <strong className="text-[#D94A38]">
+              PT. Siwalan Teknik Perkasa
+            </strong>{" "}
+            adalah perusahaan jasa angkutan batu kapur yang berdiri sejak{" "}
+            <strong className="text-gray-800">28 Maret 2000</strong>. Kami telah
+            menjadi mitra logistik pertambangan terpercaya selama lebih dari dua
+            dekade.
+          </p>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            Fokus kami adalah mendukung kebutuhan transportasi sektor industri,
+            konstruksi, dan pengolahan mineral di wilayah Jawa Timur dan
+            sekitarnya melalui layanan profesional, efisien, dan tepat waktu.
+          </p>
+        </div>
+
+        {/* Identitas Perusahaan */}
+        <div className="bg-gray-50 p-10 rounded-2xl shadow-xl max-w-5xl mx-auto">
+          <h3 className="text-3xl font-bold text-[#D94A38] mb-8 text-center md:text-left">
             Identitas Perusahaan
           </h3>
-          <ul className="space-y-4 text-lg text-gray-700">
-            <li className="flex items-start gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700 text-lg">
+            <div className="flex items-start gap-4">
               <i className="fas fa-calendar-alt text-[#FFC107] text-2xl mt-1"></i>
               <div>
-                <span className="font-semibold">Tanggal Berdiri:</span> 28 Maret
-                2000
+                <span className="font-semibold block">Tanggal Berdiri:</span>
+                28 Maret 2000
               </div>
-            </li>
-            <li className="flex items-start gap-3">
+            </div>
+            <div className="flex items-start gap-4">
               <i className="fas fa-user-tie text-[#FFC107] text-2xl mt-1"></i>
               <div>
-                <span className="font-semibold">Direktur Utama:</span> Linda
-                Pujianto
+                <span className="font-semibold block">Direktur Utama:</span>
+                Linda Pujianto
               </div>
-            </li>
-            <li className="flex items-start gap-3">
+            </div>
+            <div className="flex items-start gap-4">
               <i className="fas fa-id-card text-[#FFC107] text-2xl mt-1"></i>
               <div>
-                <span className="font-semibold">Nomor Izin Perusahaan:</span>{" "}
+                <span className="font-semibold block">Nomor Izin Usaha:</span>
                 9120403841766
               </div>
-            </li>
-            <li className="flex items-start gap-3">
+            </div>
+            <div className="flex items-start gap-4">
               <i className="fas fa-map-marker-alt text-[#FFC107] text-2xl mt-1"></i>
               <div>
-                <span className="font-semibold">Alamat:</span> Jl. Raya
-                Semarang–Tuban No. KM 35, Paloh, Bancar, Kec. Bancar, Kabupaten
-                Tuban, Jawa Timur
+                <span className="font-semibold block">Alamat Kantor:</span>
+                Jl. Raya Semarang–Tuban KM 35, Paloh, Bancar, Kabupaten Tuban,
+                Jawa Timur
               </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>

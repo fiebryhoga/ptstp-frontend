@@ -3,24 +3,29 @@ import Link from "next/link";
 const HeroLayanan = () => {
   return (
     <section
-      className="relative h-[60vh] bg-cover bg-center flex items-center justify-center text-white"
+      className="relative h-[75vh] md:h-screen bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/assets/image/hero-layanan.jpeg')" }}
     >
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      <div className="container mx-auto text-center z-10 relative px-4">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-down">
-          Layanan Kami
+      {/* Overlay gelap dengan opacity untuk fokus teks */}
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="container mx-auto text-center relative z-10 px-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+          Layanan Profesional & Terpercaya
         </h1>
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 animate-fade-in-up delay-200">
-          Solusi Komprehensif untuk Kebutuhan Angkutan Batu Kapur Anda.
+
+        <p className="text-lg md:text-2xl max-w-2xl mx-auto mb-8 text-gray-100 drop-shadow-md">
+          Menyediakan solusi logistik batu kapur secara menyeluruh, cepat, dan
+          aman untuk berbagai kebutuhan industri dan proyek.
         </p>
+
         <Link
-          href="https://wa.me/6285730979537"
+          href="https://wa.me/6281234567890"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[#FFC107] text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400"
+          className="inline-block bg-[#D94A38] hover:bg-[#5C4033] text-white px-8 py-4 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-xl"
         >
-          <i className="fab fa-whatsapp mr-2"></i> Konsultasi Gratis
+          <i className="fab fa-whatsapp mr-2"></i> Konsultasi Sekarang
         </Link>
       </div>
     </section>
