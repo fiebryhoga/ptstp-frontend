@@ -1,4 +1,62 @@
+import { useState, useEffect } from "react";
+
 const WhyChooseUsSection = () => {
+  const [whyChooseUsItems, setWhyChooseUsItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchWhyChooseUs = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/mengapa-kami");
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setWhyChooseUsItems(data);
+      } catch (err) {
+        console.error("Error fetching Why Choose Us data:", err);
+        setError("Failed to load data. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchWhyChooseUs();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-white text-[#373536] px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-700">Loading Mengapa Kami data...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-20 bg-white text-[#373536] px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-red-500">{error}</p>
+        </div>
+      </section>
+    );
+  }
+
+
+  const icons = [
+    "fas fa-calendar-alt",
+    "fas fa-truck",
+    "fas fa-user-shield",
+    "fas fa-clock",
+    "fas fa-hard-hat",
+    "fas fa-chart-line",
+  ];
+
   return (
     <section className="py-20 bg-white text-[#373536] px-4">
       <div className="container mx-auto text-center">
@@ -13,49 +71,18 @@ const WhyChooseUsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              icon: "fas fa-calendar-alt",
-              title: "Pengalaman Solid",
-              desc: "Lebih dari 20 tahun di industri angkutan batu kapur.",
-            },
-            {
-              icon: "fas fa-truck",
-              title: "Armada Handal",
-              desc: "Truk modern, terawat, dan siap beroperasi 24/7.",
-            },
-            {
-              icon: "fas fa-user-shield",
-              title: "Keselamatan Prioritas",
-              desc: "Prosedur ketat dan pelatihan rutin demi keamanan operasional.",
-            },
-            {
-              icon: "fas fa-clock",
-              title: "Ketepatan Waktu",
-              desc: "Pengiriman sesuai jadwal adalah komitmen utama kami.",
-            },
-            {
-              icon: "fas fa-hard-hat",
-              title: "Tim Profesional & Berlisensi",
-              desc: "Driver dan staf kami berpengalaman dan terlatih.",
-            },
-            {
-              icon: "fas fa-chart-line",
-              title: "Fleksibel & Skalabel",
-              desc: "Menyesuaikan kebutuhan logistik proyek kecil hingga besar.",
-            },
-          ].map((item, index) => (
+          {whyChooseUsItems.map((item, index) => (
             <div
-              key={index}
+              key={item.id || index} 
               className="flex flex-col items-center bg-[#F8F8F8] text-[#373536] p-6 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-2 transition duration-300"
             >
               <div className="text-[#D94A38] text-4xl mb-4">
-                <i className={item.icon}></i>
+                <i className={icons[index % icons.length]}></i>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-center">
                 {item.title}
               </h3>
-              <p className="text-center text-gray-600">{item.desc}</p>
+              <p className="text-center text-gray-600">{item.description}</p>
             </div>
           ))}
         </div>

@@ -6,7 +6,6 @@ const HeroLayanan = () => {
       className="relative h-[75vh] md:h-screen bg-cover bg-center flex items-center justify-center text-white"
       style={{ backgroundImage: "url('/assets/image/hero-layanan.jpeg')" }}
     >
-      {/* Overlay gelap dengan opacity untuk fokus teks */}
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="container mx-auto text-center relative z-10 px-6">

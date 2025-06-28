@@ -1,6 +1,65 @@
 import Image from "next/image";
+import { useState, useEffect } from "react"; 
 
 const ProfilPerusahaan = () => {
+  const [profilData, setProfilData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProfilPerusahaan = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:8000/api/profil-perusahaan"
+        );
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setProfilData(data);
+      } catch (err) {
+        console.error("Error fetching Profil Perusahaan data:", err);
+        setError(
+          "Gagal memuat data profil perusahaan. Silakan coba lagi nanti."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfilPerusahaan();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-24 bg-white relative overflow-hidden px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-gray-700">Memuat profil perusahaan...</p>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="py-24 bg-white relative overflow-hidden px-4">
+        <div className="container mx-auto text-center">
+          <p className="text-red-500">{error}</p>
+        </div>
+      </section>
+    );
+  }
+
+  const formattedTanggalBerdiri = profilData?.tanggal_berdiri
+    ? new Date(profilData.tanggal_berdiri).toLocaleDateString("id-ID", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    : "N/A";
+
   return (
     <section className="py-24 bg-white relative overflow-hidden px-4">
       {/* Decorative Background */}
@@ -16,18 +75,14 @@ const ProfilPerusahaan = () => {
             Profil Perusahaan
           </h2>
           <p className="text-lg md:text-xl text-gray-600 mb-5 leading-relaxed">
-            <strong className="text-[#D94A38]">
-              PT. Siwalan Teknik Perkasa
-            </strong>{" "}
-            adalah perusahaan jasa angkutan batu kapur yang berdiri sejak{" "}
-            <strong className="text-gray-800">28 Maret 2000</strong>. Kami telah
-            menjadi mitra logistik pertambangan terpercaya selama lebih dari dua
-            dekade.
-          </p>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-            Fokus kami adalah mendukung kebutuhan transportasi sektor industri,
-            konstruksi, dan pengolahan mineral di wilayah Jawa Timur dan
-            sekitarnya melalui layanan profesional, efisien, dan tepat waktu.
+            {profilData?.kata_pengantar
+              ? 
+                profilData.kata_pengantar.split("||").map((paragraph, idx) => (
+                  <span key={idx} className="block mb-2">
+                    {paragraph.trim()}
+                  </span>
+                ))
+              : "Data pengantar tidak tersedia."}
           </p>
         </div>
 
@@ -41,29 +96,28 @@ const ProfilPerusahaan = () => {
               <i className="fas fa-calendar-alt text-[#FFC107] text-2xl mt-1"></i>
               <div>
                 <span className="font-semibold block">Tanggal Berdiri:</span>
-                28 Maret 2000
+                {formattedTanggalBerdiri}
               </div>
             </div>
             <div className="flex items-start gap-4">
               <i className="fas fa-user-tie text-[#FFC107] text-2xl mt-1"></i>
               <div>
                 <span className="font-semibold block">Direktur Utama:</span>
-                Linda Pujianto
+                {profilData?.direktur_utama || "N/A"}
               </div>
             </div>
             <div className="flex items-start gap-4">
               <i className="fas fa-id-card text-[#FFC107] text-2xl mt-1"></i>
               <div>
                 <span className="font-semibold block">Nomor Izin Usaha:</span>
-                9120403841766
+                {profilData?.nomor_izin_usaha || "N/A"}
               </div>
             </div>
             <div className="flex items-start gap-4">
               <i className="fas fa-map-marker-alt text-[#FFC107] text-2xl mt-1"></i>
               <div>
                 <span className="font-semibold block">Alamat Kantor:</span>
-                Jl. Raya Semarang–Tuban KM 35, Paloh, Bancar, Kabupaten Tuban,
-                Jawa Timur
+                {profilData?.alamat_kantor || "N/A"}
               </div>
             </div>
           </div>

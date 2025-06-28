@@ -2,14 +2,14 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import Button from "../common/Button"; // Pastikan path ini benar
+import Button from "../common/Button";
 
 const Navbar = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = useState("");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State untuk menu mobile
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Cek route aktif
   useEffect(() => {
@@ -18,18 +18,18 @@ const Navbar = () => {
     }
   }, [router.isReady, router.pathname]);
 
-  // Cek scroll (untuk hide/show navbar)
+  
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY <= 0) {
-        setIsVisible(true); // Saat di paling atas, navbar tetap muncul
+        setIsVisible(true); 
       } else if (currentScrollY < lastScrollY) {
-        setIsVisible(true); // Scroll ke atas
+        setIsVisible(true); 
       } else {
-        setIsVisible(false); // Scroll ke bawah
-        setIsMenuOpen(false); // Tutup menu mobile saat scroll ke bawah
+        setIsVisible(false); 
+        setIsMenuOpen(false); 
       }
 
       setLastScrollY(currentScrollY);
@@ -55,11 +55,11 @@ const Navbar = () => {
         {/* Logo dan Nama Perusahaan */}
         <Link
           href="/"
-          className="flex items-center gap-2 md:gap-4 flex-shrink-0" // flex-shrink-0 agar tidak menyusut
-          onClick={() => setIsMenuOpen(false)} // Tutup menu saat klik logo
+          className="flex items-center gap-2 md:gap-4 flex-shrink-0" 
+          onClick={() => setIsMenuOpen(false)} 
         >
           <img
-            className="w-12 sm:w-14 md:w-16 h-auto" // Ukuran logo responsif
+            className="w-12 sm:w-14 md:w-16 h-auto" 
             src="/assets/image/logo-stp.png"
             alt="Logo PT. Siwalan Tehnik Perkasa"
           />
@@ -68,7 +68,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Tombol Hamburger untuk Mobile */}
+        
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
@@ -109,7 +109,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Navigasi Utama (Tersembunyi di Mobile, Tampil di Desktop) */}
+        
         <ul className="hidden md:flex space-x-4 lg:space-x-6 items-center">
           <li>
             <Link
@@ -160,9 +160,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="ml-4">
-            {" "}
-            {/* Margin untuk memisahkan dari menu */}
-            <Button href="https://wa.me/6281234567890">Hubungi Kami</Button>
+            <Button href="/hubungiKami">Hubungi Kami</Button>
           </li>
         </ul>
       </div>
@@ -225,12 +223,9 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="pt-4">
-            <Button
-              href="https://wa.me/6281234567890"
-              onClick={() => setIsMenuOpen(false)}
-            >
+            <Link href="/hubungiKami" onClick={() => setIsMenuOpen(false)}>
               Hubungi Kami
-            </Button>
+            </Link>
           </li>
         </ul>
       </div>

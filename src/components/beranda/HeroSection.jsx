@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "../common/Button"; // Pastikan path-nya sesuai struktur proyekmu
+import Button from "../common/Button";
 
 const HeroSection = () => {
   return (
@@ -7,7 +7,6 @@ const HeroSection = () => {
       className="relative h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/assets/image/hero.jpeg')" }}
     >
-      {/* Overlay untuk teks agar kontras */}
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="container mx-auto flex flex-col items-center justify-center h-full text-white text-center z-10 relative px-4 gap-6">
@@ -25,7 +24,6 @@ const HeroSection = () => {
           tim profesional.
         </p>
 
-        {/* Gunakan komponen Button yang sudah kamu buat */}
         <Button
           href="/layanan"
           className="bg-[#D94A38] hover:bg-[#5C4033] text-white mt-4 animate-fade-in-up delay-400"

@@ -6,7 +6,6 @@ const HeroTentangKami = () => {
       className="relative h-[70vh] md:h-[80vh] bg-cover bg-center flex items-center text-white"
       style={{ backgroundImage: "url('/assets/image/layanan1.jpeg')" }}
     >
-      {/* Overlay Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/50"></div>
 
       <div className="relative z-10 container mx-auto px-6 md:px-12">

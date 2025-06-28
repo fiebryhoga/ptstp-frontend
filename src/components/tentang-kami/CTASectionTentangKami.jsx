@@ -3,7 +3,6 @@ import Link from "next/link";
 const CTASectionTentangKami = () => {
   return (
     <section className="relative py-20 bg-white px-4 overflow-hidden">
-      {/* Background Decorative */}
       <div
         className="absolute inset-0 bg-[url('/assets/image/bg-footer.jpg')] bg-cover bg-center opacity-10 pointer-events-none"
         aria-hidden="true"

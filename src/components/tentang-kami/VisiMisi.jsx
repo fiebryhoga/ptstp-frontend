@@ -1,14 +1,12 @@
 const VisiMisi = () => {
   return (
     <section className="py-20 bg-white text-gray-800 px-4 relative">
-      {/* Background Dekoratif Transparan */}
       <div
         className="absolute inset-0 bg-[url('/assets/image/bg-footer.jpg')] bg-cover bg-center opacity-5"
         aria-hidden="true"
       ></div>
 
       <div className="container mx-auto relative z-10">
-        {/* Judul & Deskripsi */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             Visi & Misi Perusahaan
@@ -20,7 +18,6 @@ const VisiMisi = () => {
           </p>
         </div>
 
-        {/* Visi */}
         <div className="bg-gray-50 p-10 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 text-center max-w-3xl mx-auto mb-20">
           <div className="text-[#D94A38] text-5xl mb-4">
             <i className="fas fa-eye"></i>
